@@ -11,6 +11,7 @@ For build this kernel you should do:
 2- Build the kernel:
 
 `cd ~/wet`
+
 `make all`
 
 3- Copy kernel's directory:
@@ -24,11 +25,13 @@ for example:
 4- Run the kernel
 
 `cd [kernel's directory]`
+
 `python3 vmwet.pyc`
 
 for example:
 
 `cd ~/Dropbox/wet`
+
 `python3 vmwet.pyc`
 
 Than login with root user account, for see commands run `help` command in kernel's shell.
