@@ -18,5 +18,7 @@ For build this kernel you should do:
 `make run`
 or
 `cd stor && python3 vmwet.pyc`
+ # Screenshot from Wet kernel:
+![](https://github.com/wet-kernel/wet/blob/master/Screenshot%20from%202019-08-12%2014-26-08.png)
 
 # End
