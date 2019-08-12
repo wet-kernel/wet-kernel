@@ -35,9 +35,13 @@ If you choose (T) for security you should enter a new password for your user.
 4. For create this user enter 'Y'.
 
 If you want to edit your user run `passwd example`
+
 If you want to delete your user run `userm example`
+
 Switch an user: Run `su example`
+
 List users on terminal: Run `userlist`
+
 See user information: Run `userinfo example`
 
 # End
