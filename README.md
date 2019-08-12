@@ -1,4 +1,4 @@
-# The Wet kernel
+# Wet kernel
 
 This kernel written with Python programing language that you can run it on computer or other device (e.g. on cloud drives).
 
