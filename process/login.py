@@ -11,6 +11,6 @@ def k_login():
         elif username=="" or username.startswith(" "):
             continue
         else:
-            print (process_colors.FAIL+username+": user not found."+process_colors.ENDC)
+            print (process_colors.color(0,process_colors.red,40)+username+": user not found."+process_colors.color(0,process_colors.white,40))
 
 k_login()
