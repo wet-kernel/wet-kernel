@@ -37,6 +37,7 @@ for example:
 Than login with root user account, for see commands run `help` command in kernel's shell.
 
  # Screenshot from Wet kernel:
-![](https://github.com/wet-kernel/wet/blob/master/Screenshot%20from%202019-08-12%2014-26-08.png)
+![](https://github.com/wet-kernel/wet/blob/master/screenshot.png)
 
-# End
+
+Created by Editor.md
