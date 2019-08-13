@@ -12,7 +12,7 @@ def enter_password(username,command_symbol):
             if password==switch_user.code:
                 k_shell(switch_user.name,command_symbol,"/")
             else:
-                print (process_colors.FAIL+"Wrong password.\n"+process_colors.ENDC)
+                print (process_colors.color(0,process_colors.red,40) +"Wrong password.\n"+process_colors.color(0,process_colors.white,40))
                 i = i + 1
         else:
             k_shell(switch_user.name,command_symbol,"/")
