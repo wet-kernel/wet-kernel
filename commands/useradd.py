@@ -22,7 +22,7 @@ def useradd (username):
                     file.close()
                     break
                 else:
-                    print(process_colors.FAIL + "Wrong password! Try agian.\n" + process_colors.ENDC)
+                    print(process_colors.color(0,process_colors.red,40) + "Wrong password! Try agian.\n" + process_colors.color(0,process_colors.white,40))
         elif security=="f" or security=="F" or security=="\0":
             file.write("security = False\n")
             file.close()
@@ -38,4 +38,4 @@ def useradd (username):
             os.remove(src)
             os.mkdir ("desk/"+username)
     else:
-        print(process_colors.FAIL + username + ": user already exists." + process_colors.ENDC)
+        print(process_colors.color(0,process_colors.red,40)  + username + ": user already exists." +process_colors.color(0,process_colors.white,40))
