@@ -6,7 +6,7 @@ For build this kernel you should do:
 
 1- Get Wet kernel with this command:
 
-`git clone https://github.com/wet-kernel/wet`
+`git clone https://github.com/wet-kernel/wet-kernel`
 
 2- Build the kernel:
 
