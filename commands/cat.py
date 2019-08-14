@@ -8,9 +8,9 @@ def cat (values):
                     file.close()
                     print(strv)
                 elif os.path.isdir(root + "/" + i):
-                    print(process_colors.color(0,process_colors.red,40) + i + ": isn't a file." + process_colors.color(0,process_colors.white,40))
+                    print(process_colors.get_fail() + i + ": isn't a file." + process_colors.get_colors())
                 else:
-                    print(process_colors.color(0,process_colors.red,40)  + i + ": file not found." + process_colors.color(0,process_colors.white,40))
+                    print(process_colors.get_fail()   + i + ": file not found." + process_colors.get_colors())
     else:
         for i in values:
             if os.path.isfile(root + "/" + i):
@@ -19,6 +19,6 @@ def cat (values):
                 file.close()
                 print(strv)
             elif os.path.isdir(root + "/" + i):
-                print(process_colors.color(0,process_colors.red,40)  + i + ": isn't a file." + process_colors.color(0,process_colors.white,40))
+                print(process_colors.get_fail()   + i + ": isn't a file." + process_colors.get_colors())
             else:
-                print(process_colors.color(0,process_colors.red,40)  + i + ": file not found." + process_colors.color(0,process_colors.white,40))
+                print(process_colors.get_fail()   + i + ": file not found." + process_colors.get_colors())

@@ -12,19 +12,15 @@ For build this kernel you should do:
 
 `cd ~/wet`
 
-`make all`
+ than run:
 
-3- Copy kernel's directory:
-
-`cp -rv stor/* [another directory]`
-
-for example:
-
-`cp -rv stor/* ~/Dropbox/wet`
+`make PREFIX=[install location] all`
 
 4- Run the kernel
 
-`cd [kernel's directory]`
+`cd [installed directory]`
+
+than run:
 
 `python3 vmwet.pyc`
 

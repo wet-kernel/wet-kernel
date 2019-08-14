@@ -1,3 +1,4 @@
+PREFIX=
 
 install:
 	@python3 install.py
@@ -16,4 +17,4 @@ clean-commands:
 	@rm -v jobs/job_commands/* commands.py
 
 all:
-	@make install-commands && make clean-commands && make install-commands && make clean && make && make run
+	@make install-commands && make clean-commands && make install-commands && make clean && make && cp -rv stor/* ${PREFIX}

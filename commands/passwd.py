@@ -1,7 +1,7 @@
 def passwd (username):
     if username=="root" and os.path.isdir("root") and os.path.isfile("etc/users/root"):
-        shutil.copyfile("etc/users/" + username, "etc/switch_user.pyc")
-        from etc import switch_user
+        shutil.copyfile("etc/users/" + username, "var/switch_user.pyc")
+        from var import switch_user
         switch_user = reload(switch_user)
         if switch_user.security == True:
             login = input("Enter " + username + "'s password: ")
@@ -24,7 +24,7 @@ def passwd (username):
                                     break
                                 else:
                                     print(
-                                        process_colors.color(0,process_colors.red,40)  + "Wrong password! Try agian.\n" + process_colors.color(0,process_colors.white,40))
+                                        process_colors.get_fail()   + "Wrong password! Try agian.\n" + process_colors.get_colors())
                         elif change_password == "n" or change_password == "N":
                             file.write("security = True\n")
                             file.write("code = \"" + switch_user.code + "\"")
@@ -37,7 +37,7 @@ def passwd (username):
                     file.write("security = " + str(switch_user.security) + "\n")
                     file.close()
             else:
-                print(process_colors.color(0,process_colors.red,40)  + "Wrong password." + process_colors.color(0,process_colors.white,40))
+                print(process_colors.get_fail()   + "Wrong password." + process_colors.get_colors())
         else:
             change_security = input("Do you want to change " + username + "'s security? [Y/n]: ")
             if change_security == "Y" or change_security == "y":
@@ -56,7 +56,7 @@ def passwd (username):
                                 file.close()
                                 break
                             else:
-                                print(process_colors.color(0,process_colors.red,40)  + "Wrong password! Try agian.\n" + process_colors.color(0,process_colors.white,40))
+                                print(process_colors.get_fail()   + "Wrong password! Try agian.\n" + process_colors.get_colors())
                     elif change_password == "n" or change_password == "N" or change_password == "\0":
                         file.write("security = True\n")
                         file.write("code = \"" + switch_user.code + "\"")
@@ -76,8 +76,8 @@ def passwd (username):
             os.remove(src)
     else:
         if os.path.isfile("etc/users/" + username) and os.path.isdir("desk/" + username):
-            shutil.copyfile("etc/users/" + username, "etc/switch_user.pyc")
-            from etc import switch_user
+            shutil.copyfile("etc/users/" + username, "var/switch_user.pyc")
+            from var import switch_user
             if switch_user.security == True:
                 login = input("Enter " + username + "'s password: ")
                 if login == switch_user.code:
@@ -114,7 +114,7 @@ def passwd (username):
                                         break
                                     else:
                                         print(
-                                            process_colors.color(0,process_colors.red,40)  + "Wrong password! Try agian.\n" + process_colors.color(0,process_colors.white,40))
+                                            process_colors.get_fail() + "Wrong password! Try agian.\n" + process_colors.get_colors())
                             elif change_password == "n" or change_password == "N" or change_password == "\0":
                                 file.write("security = True\n")
                                 file.write("code = \"" + switch_user.code + "\"")
@@ -127,7 +127,7 @@ def passwd (username):
                         file.write("security = " + str(switch_user.security) + "\n")
                         file.close()
                 else:
-                    print(process_colors.color(0,process_colors.red,40) + "Wrong password." +process_colors.color(0,process_colors.white,40))
+                    print(process_colors.get_fail()  + "Wrong password." +process_colors.get_colors())
             else:
                 change_admin = input("Do you want to change " + username + "'s type? [Y/n]: ")
                 if change_admin == "Y" or change_admin == "y":
@@ -161,7 +161,7 @@ def passwd (username):
                                     file.close()
                                     break
                                 else:
-                                    print(process_colors.color(0,process_colors.red,40)  + "Wrong password! Try agian.\n" + process_colors.color(0,process_colors.white,40))
+                                    print(process_colors.get_fail()   + "Wrong password! Try agian.\n" + process_colors.get_colors())
                         elif chnage_password == "n" or chnage_password == "N" or chnage_password == "\0":
                             file.write("security = True\n")
                             file.write("code = \"" + switch_user.code + "\"")
@@ -180,4 +180,4 @@ def passwd (username):
                 py_compile.compile(src, dest)
                 os.remove(src)
         else:
-            print(process_colors.color(0,process_colors.red,40)  + username + ": user not found." + process_colors.color(0,process_colors.white,40))
+            print(process_colors.get_fail()   + username + ": user not found." + process_colors.get_colors())

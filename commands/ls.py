@@ -3,8 +3,8 @@ def ls (path):
         dirs = os.listdir(root + "/" + path)
         for dir in dirs:
             if os.path.isfile(root + "/" + path + "/" + dir):
-                print(dir + process_colors.color(0,process_colors.white,40))
+                print(dir + process_colors.get_colors())
             else:
-                print(process_colors.color(1,process_colors.blue,40) + dir + "/" + process_colors.color(0,process_colors.white,40))
+                print(process_colors.get_path() + dir + "/" + process_colors.get_colors())
     else:
-        print(process_colors.color(0,process_colors.red,40)  +path+ ": directory not found." +process_colors.color(0,process_colors.white,40))
+        print(process_colors.get_fail()   +path+ ": directory not found." +process_colors.get_colors())

@@ -9,10 +9,10 @@ def get_permissions (username,permission):
                 if password == switch_user.code:
                     return True
                 else:
-                    print(process_colors.color(0,process_colors.red,40)  + "Wrong password.\n" + process_colors.color(0,process_colors.white,40))
+                    print(process_colors.get_fail()   + "Wrong password.\n" + process_colors.get_colors())
                     return False
             else:
                 return True
         else:
-            print(process_colors.color(0,process_colors.red,40)  +permission+ ": Permission denied." + process_colors.color(0,process_colors.white,40))
+            print(process_colors.get_fail()  +permission+ ": Permission denied." + process_colors.get_colors())
             return False

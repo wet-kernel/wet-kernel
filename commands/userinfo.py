@@ -1,27 +1,27 @@
 def userinfo (username):
     if username=="root" and os.path.isdir ("root") and os.path.isfile ("etc/users/root"):
-        copyfile("etc/users/" + username, "etc/switch_user.pyc")
-        from etc import switch_user
+        copyfile("etc/users/" + username, "var/switch_user.pyc")
+        from var import switch_user
         switch_user = reload(switch_user)
-        print("    Username:   " + process_colors.color(1,process_colors.white,40) + switch_user.name + process_colors.color(0,process_colors.white,40))
+        print("    Username:   " + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + switch_user.name + process_colors.get_colors())
         if switch_user.security == True:
-            print("    Security:   " + process_colors.color(1,process_colors.white,40) + "enable" +process_colors.color(0,process_colors.white,40))
+            print("    Security:   " + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "enable" +process_colors.get_colors())
         else:
-            print("    Security:   " + process_colors.color(1,process_colors.white,40) + "disable" + process_colors.color(0,process_colors.white,40))
+            print("    Security:   " + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "disable" + process_colors.get_colors())
     elif os.path.isdir ("desk/"+username) and os.path.isfile("etc/users/"+username):
-        copyfile("etc/users/" + username, "etc/switch_user.pyc")
-        from etc import switch_user
+        copyfile("etc/users/" + username, "var/switch_user.pyc")
+        from var import switch_user
         switch_user = reload(switch_user)
-        print("    Username:   " + process_colors.color(1,process_colors.white,40) + switch_user.name +process_colors.color(0,process_colors.white,40))
+        print("    Username:   " + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + switch_user.name +process_colors.get_colors())
         if switch_user.admin == True:
-            print("    Type:       " + process_colors.color(1,process_colors.white,40) + "Administrator" + process_colors.color(0,process_colors.white,40))
+            print("    Type:       " + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "Administrator" + process_colors.get_colors())
         else:
-            print("    Type:       " + process_colors.color(1,process_colors.white,40) + "Standard" + process_colors.color(0,process_colors.white,40))
+            print("    Type:       " + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "Standard" + process_colors.get_colors())
         if switch_user.security == True:
-            print("    Security:   " + process_colors.color(1,process_colors.white,40) + "enable" +process_colors.color(0,process_colors.white,40))
+            print("    Security:   " + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "enable" +process_colors.get_colors())
         else:
-            print("    Security:   " + process_colors.color(1,process_colors.white,40) + "disable" + process_colors.color(0,process_colors.white,40))
+            print("    Security:   " + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "disable" + process_colors.get_colors())
     elif username=="" or username==" ":
         print()
     else:
-        print(process_colors.color(0,process_colors.red,40)  +username+ ": user not found." +process_colors.color(0,process_colors.white,40))
+        print(process_colors.get_fail()   +username+ ": user not found." +process_colors.get_colors())

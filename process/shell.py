@@ -51,26 +51,28 @@ def terminal(commandline,command,username,command_symbol,path):
         pyc(commandline[1:])
     elif command == "userlist":
         userlist()
+    elif command == "license":
+        license()
     elif os.path.isfile("bin/" + commandline[0] + ".pyc"):
         exec(commandline[0], commandline[1:])
     else:
-        print(process_colors.color(0,process_colors.red,40) + commandline[0] + ": command not found." + process_colors.color(0,process_colors.white,40))
+        print(process_colors.get_fail()  + commandline[0] + ": command not found." + process_colors.get_colors())
 
 def k_shell(username,command_symbol,path):
     print()
     process.show_start_process("shell")
     print()
     while True:
-        color_prompt =process_colors.color(0,process_colors.white,40)
-        color_path =process_colors.color(0,process_colors.white,40)
+        color_prompt =process_colors.get_colors()
+        color_path =process_colors.get_colors()
         if username=="root":
-            color_prompt = process_colors.color(0,process_colors.white,40)
-            color_path = process_colors.color(0,process_colors.white,40)
+            color_prompt = process_colors.get_colors()
+            color_path = process_colors.get_colors()
         else:
-            color_prompt = process_colors.color(1,process_colors.green,40)
-            color_path = process_colors.color(1,process_colors.blue,40)
+            color_prompt = process_colors.get_prompt()
+            color_path = process_colors.get_path()
 
-        command = input (color_prompt+username+"@"+get_hostname()+process_colors.color(0,process_colors.white,40)+":"+color_path+path+process_colors.color(0,process_colors.white,40)+ command_symbol+" ")
+        command = input (color_prompt+username+"@"+get_hostname()+process_colors.color(process_colors.get_style(),process_colors.white,process_colors.get_bgcolor())+":"+color_path+path+process_colors.get_colors()+ command_symbol+" ")
         commandline = command.split(" ")
 
         if commandline[0] == "cd":
@@ -81,7 +83,7 @@ def k_shell(username,command_symbol,path):
                     if os.path.isdir(root + "/" + commandline[1]):
                         path = commandline[1]
                     else:
-                        print(process_colors.color(0,process_colors.red,40) + commandline[1] + ": directory not found." + process_colors.color(0,process_colors.white,40))
+                        print(process_colors.get_fail()  + commandline[1] + ": directory not found." + process_colors.get_colors())
                 else:
                     if os.path.isdir(root+"/"+path+"/"+commandline[1]):
                         if path == "/":
@@ -89,6 +91,6 @@ def k_shell(username,command_symbol,path):
                         else:
                             path = path + "/" + commandline[1]
                     else:
-                        print(process_colors.color(0,process_colors.red,40) + commandline[1] + ": directory not found." +process_colors.color(0,process_colors.white,40))
+                        print(process_colors.get_fail()  + commandline[1] + ": directory not found." +process_colors.get_colors())
         else:
             terminal(commandline,command,username,command_symbol,path)

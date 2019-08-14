@@ -91,6 +91,19 @@ def cat():
 if not os.path.isfile ("jobs/job_commands/cat"):
     cat()
 
+def cat():
+    file = open("commands/license.py", "r")
+    strv = file.read()
+    file.close()
+    vmwet_file = open("commands.py", "a")
+    vmwet_file.write(strv + "\n")
+    vmwet_file.close()
+    file = open("jobs/job_commands/license", "w")
+    file.close()
+
+if not os.path.isfile ("jobs/job_commands/license"):
+    cat()
+
 def help():
     file = open("commands/help.py", "r")
     strv = file.read()

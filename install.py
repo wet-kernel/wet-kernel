@@ -98,16 +98,6 @@ def process_init():
     file = open("jobs/process_init","w")
     file.close()
 
-def process_clean():
-    file = open ("process/clean.py","r")
-    strv = file.read()
-    file.close()
-    vmwet_file = open("init.py","a")
-    vmwet_file.write(strv+"\n")
-    vmwet_file.close()
-    file = open("jobs/process_clean","w")
-    file.close()
-
 def process_distro():
     file = open ("process/distro.py","r")
     strv = file.read()
@@ -169,8 +159,6 @@ if not os.path.isfile("jobs/commands"):
     commands()
 if not os.path.isfile("jobs/process_init"):
     process_init()
-if not os.path.isfile("jobs/process_clean"):
-    process_clean()
 if not os.path.isfile("jobs/process_distro"):
     process_distro()
 if not os.path.isfile("jobs/process_issue"):
