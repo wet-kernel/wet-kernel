@@ -1,3 +1,5 @@
+
+
 def terminal(commandline,command,username,command_symbol,path):
     if command == "" or command == " " or command.startswith("#") or command.startswith("//") or (command.startswith("/*") and command.endswith("*/")):
         print(end='')
@@ -53,6 +55,10 @@ def terminal(commandline,command,username,command_symbol,path):
         userlist()
     elif command == "license":
         license()
+    elif commandline[0] == "pack":
+        pack(commandline[1:])
+    elif commandline[0] == "unpack":
+        unpack(commandline[1:])
     elif os.path.isfile("bin/" + commandline[0] + ".pyc"):
         exec(commandline[0], commandline[1:])
     else:

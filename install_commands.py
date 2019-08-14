@@ -26,6 +26,19 @@ def ver():
 if not os.path.isfile ("jobs/job_commands/ver"):
     ver()
 
+def pack():
+    file = open("commands/pack.py", "r")
+    strv = file.read()
+    file.close()
+    vmwet_file = open("commands.py", "a")
+    vmwet_file.write(strv + "\n")
+    vmwet_file.close()
+    file = open("jobs/job_commands/pack", "w")
+    file.close()
+
+if not os.path.isfile ("jobs/job_commands/pack"):
+    pack()
+
 def out():
     file = open("commands/out.py", "r")
     strv = file.read()

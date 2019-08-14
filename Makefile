@@ -1,4 +1,4 @@
-PREFIX=
+PREFIX=/media/mani/wet
 
 install:
 	@python3 install.py
@@ -18,3 +18,6 @@ clean-commands:
 
 all:
 	@make install-commands && make clean-commands && make install-commands && make clean && make && cp -rv stor/* ${PREFIX}
+
+test:
+	@make install-commands && make clean-commands && make install-commands && make clean && make && make run

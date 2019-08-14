@@ -10,6 +10,7 @@ def help():
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "mkdir" + process_colors.get_colors() + "\t\t[dir] ...\tCreate directory.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "mv" + process_colors.get_colors() + "\t\t[src] [dist]\tMove or rename files.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor())+ "out" + process_colors.get_colors() + "\t\t[...]\t\tPrint message on screen.\n" +
+        "\t" + process_colors.color(1, process_colors.white,process_colors.get_bgcolor()) + "pack" + process_colors.get_colors() + "\t\t[option] [...]\tCreate archives (zip, tar, xztar, etc).\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "passwd" + process_colors.get_colors() + "\t\t[user]\t\tAccount settings.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor())+ "pyc" +process_colors.get_colors()+ "\t\t[src] [dest]\tPython compile.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor())+ "reboot" + process_colors.get_colors()+ "\t\t\t\tReboot the kernel.\n" +
@@ -17,9 +18,10 @@ def help():
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "rmdir" + process_colors.get_colors() + "\t\t[dir] ...\tRemove empty directory.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "shut" +process_colors.get_colors() + "\t\t\t\tShutdown the kernel.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "su" + process_colors.get_colors() + "\t\t[user]\t\tSwitch an user account.\n" +
+        "\t" + process_colors.color(1, process_colors.white,process_colors.get_bgcolor()) + "unpack" + process_colors.get_colors() + "\t\t[option] [...]\tExtract archives (zip, tar, xztar, etc).\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "useradd" + process_colors.get_colors() + "\t\t[user]\t\tCreate an user account.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "userinfo" +process_colors.get_colors() + "\t[user]\t\tShow informations about an user account.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "userlist" + process_colors.get_colors() + "\t\t\tList users account.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "userm" + process_colors.get_colors() + "\t\t[user]\t\tRemove an user account.\n" +
-        "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "ver" +process_colors.get_colors()+ "\t\t\t\tShow informations about kernel."
+        "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "ver" +process_colors.get_colors()+ "\t\t\t\tShow informations about kernel.\n"
     )

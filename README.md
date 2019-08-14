@@ -7,8 +7,8 @@ For build this kernel you should do:
 1- Get Wet kernel with this command:
 
 `git clone https://github.com/wet-kernel/wet-kernel`
-
-2- Build the kernel:
+____
+3- Build the kernel:
 
 `cd ~/wet`
 
@@ -16,6 +16,10 @@ For build this kernel you should do:
 
 `make PREFIX=[install location] all`
 
+ for example:
+ 
+ `make PREFIX=~/Dropbox/wet all`
+____
 4- Run the kernel
 
 `cd [installed directory]`
@@ -29,7 +33,7 @@ for example:
 `cd ~/Dropbox/wet`
 
 `python3 vmwet.pyc`
-
+____
 Than login with root user account, for see commands run `help` command in kernel's shell.
 
  # Screenshot from Wet kernel:

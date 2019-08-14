@@ -1,6 +1,6 @@
 
 k_header_magic = "wet"
-k_header_version = "0.25"
+k_header_version = "0.26"
 k_header_code = "test"
 k_header_license = "GPL v3"
 
@@ -195,6 +195,161 @@ def ver():
     print ("\tKernel type:\t"+process_colors.color(1,process_colors.white,process_colors.get_bgcolor())+"Hight microkernel"+process_colors.get_colors())
     print ("\tKernel version:\t"+process_colors.color(1,process_colors.white,process_colors.get_bgcolor())+k_header_version+process_colors.get_colors())
     print ("\tLicense:\t"+process_colors.color(1,process_colors.white,process_colors.get_bgcolor())+k_header_license+process_colors.get_colors())
+import shutil
+
+def pack (values):
+    if values[0]=="-t":
+        if values[1]=="zip":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-o"):
+                    if os.path.isdir(root + "/" + values[4]):
+                        shutil.make_archive(root + "/" + values[3], "zip", root + "/" + values[4])
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": directory not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isdir(root + "/" + values[2]):
+                    shutil.make_archive(root + "/" + values[2], "zip", root + "/" + values[2])
+                else:
+                    print(process_colors.get_fail() + values[2] + ": directory not found.")
+        elif values[1]=="tar":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-o"):
+                    if os.path.isdir(root + "/" + values[4]):
+                        shutil.make_archive(root + "/" + values[3], "tar", root + "/" + values[4])
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": directory not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isdir(root + "/" + values[2]):
+                    shutil.make_archive(root + "/" + values[2], "tar", root + "/" + values[2])
+                else:
+                    print(process_colors.get_fail() + values[2] + ": directory not found.")
+        elif values[1]=="xztar":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-o"):
+                    if os.path.isdir(root + "/" + values[4]):
+                        shutil.make_archive(root + "/" + values[3], "xztar", root + "/" + values[4])
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": directory not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isdir(root + "/" + values[2]):
+                    shutil.make_archive(root + "/" + values[2], "xztar", root + "/" + values[2])
+                else:
+                    print(process_colors.get_fail() + values[2] + ": directory not found.")
+        elif values[1] == "gztar":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-o"):
+                    if os.path.isdir(root + "/" + values[4]):
+                        shutil.make_archive(root + "/" + values[3], "gztar", root + "/" + values[4])
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": directory not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isdir(root + "/" + values[2]):
+                    shutil.make_archive(root + "/" + values[2], "gztar", root + "/" + values[2])
+                else:
+                    print(process_colors.get_fail() + values[2] + ": directory not found.")
+        elif values[1] == "bztar":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-o"):
+                    if os.path.isdir(root + "/" + values[4]):
+                        shutil.make_archive(root + "/" + values[3], "bztar", root + "/" + values[4])
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": directory not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isdir(root + "/" + values[2]):
+                    shutil.make_archive(root + "/" + values[2], "bztar", root + "/" + values[2])
+                else:
+                    print(process_colors.get_fail() + values[2] + ": directory not found.")
+        else:
+            print(process_colors.get_fail() + values[1] + ": archive type not found.")
+    else:
+        print(process_colors.get_fail() + values[0] + ": option not found.")
+
+def unpack (values):
+    if values[0] == "-t":
+        if values[1] == "zip":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-d"):
+                    if os.path.isfile(root + "/" + values[3] + ".zip"):
+                        shutil.unpack_archive(root + "/" + values[3] + ".zip", root + "/" + values[4], "zip")
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": archive not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isfile(root + "/" + values[2] + ".zip"):
+                    shutil.unpack_archive(root + "/" + values[2] + ".zip", root + "/" + values[2], "zip")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": archive not found.")
+        elif values[1] == "tar":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-d"):
+                    if os.path.isfile(root + "/" + values[3] + ".tar"):
+                        shutil.unpack_archive(root + "/" + values[3] + ".tar", root + "/" + values[4], "tar")
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": archive not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isfile(root + "/" + values[2] + ".tar"):
+                    shutil.unpack_archive(root + "/" + values[2] + ".tar", root + "/" + values[2], "tar")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": archive not found.")
+        elif values[1] == "xztar":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-d"):
+                    if os.path.isfile(root + "/" + values[3] + ".tar.xz"):
+                        shutil.unpack_archive(root + "/" + values[3] + ".tar.xz", root + "/" + values[4], "xztar")
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": archive not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isfile(root + "/" + values[2] + ".tar.xz"):
+                    shutil.unpack_archive(root + "/" + values[2] + ".tar.xz", root + "/" + values[2], "xztar")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": archive not found.")
+        elif values[1] == "gztar":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-d"):
+                    if os.path.isfile(root + "/" + values[3] + ".tar.gz"):
+                        shutil.unpack_archive(root + "/" + values[3] + ".tar.gz", root + "/" + values[4], "gztar")
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": archive not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isfile(root + "/" + values[2] + ".tar.gz"):
+                    shutil.unpack_archive(root + "/" + values[2] + ".tar.gz", root + "/" + values[2], "gztar")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": archive not found.")
+        elif values[1] == "bztar":
+            if values[2].startswith("-"):
+                if values[2].__contains__("-d"):
+                    if os.path.isfile(root + "/" + values[3] + ".tar.bz2"):
+                        shutil.unpack_archive(root + "/" + values[3] + ".tar.bz2", root + "/" + values[4], "bztar")
+                    else:
+                        print(process_colors.get_fail() + values[3] + ": archive not found.")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": option not found.")
+            else:
+                if os.path.isfile(root + "/" + values[2] + ".tar.bz2"):
+                    shutil.unpack_archive(root + "/" + values[2] + ".tar.bz2", root + "/" + values[2], "bztar")
+                else:
+                    print(process_colors.get_fail() + values[2] + ": archive not found.")
+        else:
+            print(process_colors.get_fail() + values[1] + ": archive type not found.")
+    else:
+        print(process_colors.get_fail() + values[2] + ": option not found.")
 
 def out(values):
     for i in values:
@@ -283,6 +438,7 @@ def help():
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "mkdir" + process_colors.get_colors() + "\t\t[dir] ...\tCreate directory.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "mv" + process_colors.get_colors() + "\t\t[src] [dist]\tMove or rename files.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor())+ "out" + process_colors.get_colors() + "\t\t[...]\t\tPrint message on screen.\n" +
+        "\t" + process_colors.color(1, process_colors.white,process_colors.get_bgcolor()) + "pack" + process_colors.get_colors() + "\t\t[option] [...]\tCreate archives (zip, tar, xztar, etc).\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "passwd" + process_colors.get_colors() + "\t\t[user]\t\tAccount settings.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor())+ "pyc" +process_colors.get_colors()+ "\t\t[src] [dest]\tPython compile.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor())+ "reboot" + process_colors.get_colors()+ "\t\t\t\tReboot the kernel.\n" +
@@ -290,11 +446,12 @@ def help():
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "rmdir" + process_colors.get_colors() + "\t\t[dir] ...\tRemove empty directory.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "shut" +process_colors.get_colors() + "\t\t\t\tShutdown the kernel.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "su" + process_colors.get_colors() + "\t\t[user]\t\tSwitch an user account.\n" +
+        "\t" + process_colors.color(1, process_colors.white,process_colors.get_bgcolor()) + "unpack" + process_colors.get_colors() + "\t\t[option] [...]\tExtract archives (zip, tar, xztar, etc).\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "useradd" + process_colors.get_colors() + "\t\t[user]\t\tCreate an user account.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "userinfo" +process_colors.get_colors() + "\t[user]\t\tShow informations about an user account.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "userlist" + process_colors.get_colors() + "\t\t\tList users account.\n" +
         "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "userm" + process_colors.get_colors() + "\t\t[user]\t\tRemove an user account.\n" +
-        "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "ver" +process_colors.get_colors()+ "\t\t\t\tShow informations about kernel."
+        "\t" + process_colors.color(1,process_colors.white,process_colors.get_bgcolor()) + "ver" +process_colors.get_colors()+ "\t\t\t\tShow informations about kernel.\n"
     )
 def cp (values):
     if values[0].startswith("-"):
@@ -658,6 +815,12 @@ def k_init():
     process.show_power_on()
     process.show_start_process("init")
 
+    if not os.path.isdir ("bin"): os.mkdir ("bin")
+    if not os.path.isdir("desk"): os.mkdir("desk")
+    if not os.path.isdir("root"): os.mkdir("root")
+    if not os.path.isdir("var"): os.mkdir("var")
+    if not os.path.isdir("var/shell"): os.mkdir("var/shell")
+
 k_init()
 
 def k_distro ():
@@ -680,6 +843,8 @@ def k_issue():
     print()
 
 k_issue()
+
+
 def terminal(commandline,command,username,command_symbol,path):
     if command == "" or command == " " or command.startswith("#") or command.startswith("//") or (command.startswith("/*") and command.endswith("*/")):
         print(end='')
@@ -735,6 +900,10 @@ def terminal(commandline,command,username,command_symbol,path):
         userlist()
     elif command == "license":
         license()
+    elif commandline[0] == "pack":
+        pack(commandline[1:])
+    elif commandline[0] == "unpack":
+        unpack(commandline[1:])
     elif os.path.isfile("bin/" + commandline[0] + ".pyc"):
         exec(commandline[0], commandline[1:])
     else:
