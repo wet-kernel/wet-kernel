@@ -1,4 +1,27 @@
+def process_shell():
+    file = open ("etc/process","r")
+    i = int(file.readline())
+    file.close()
+    while True:
+        if not os.path.isdir("var/shell/"+str(i)):
+            os.mkdir ("var/shell/"+str(i))
+            file = open ("etc/process","w")
+            file.write(str(i))
+            file.close()
+            break
+        else:
+            i = i + 1
+            os.mkdir ("var/shell/"+str(i))
+            file = open("etc/process", "w")
+            file.write(str(i))
+            file.close()
+            break
 
+def process_path ():
+    file = open("etc/process", "r")
+    i = file.readline()
+    file.close()
+    return "var/shell/"+i
 
 def terminal(commandline,command,username,command_symbol,path):
     if command == "" or command == " " or command.startswith("#") or command.startswith("//") or (command.startswith("/*") and command.endswith("*/")):
@@ -65,6 +88,7 @@ def terminal(commandline,command,username,command_symbol,path):
         print(process_colors.get_fail()  + commandline[0] + ": command not found." + process_colors.get_colors())
 
 def k_shell(username,command_symbol,path):
+    process_shell()
     print()
     process.show_start_process("shell")
     print()
